@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Formulario de Nombres{% endblock %}
+{% block content %}
+<section class="tarjeta nombres">
+    <h1 class="sr-only">Formulario de Nombres</h1>
+    <form method="post" action="{{ url_for('ejercicio2') }}">
+        {% for i in range(1, 4) %}
+        <label for="nombre{{ i }}">Nombre {{ i }}:</label>
+        <input id="nombre{{ i }}" name="nombre{{ i }}" type="text" maxlength="100"
+               value="{{ datos.get('nombre' ~ i, '') }}" required>
+        {% endfor %}
+        <button type="submit">Enviar</button>
+    </form>
+    {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+    {% if resultado %}
+    <div class="resultado" role="status">
+        <p>El nombre con mayor cantidad de caracteres es: {{ resultado.nombre }}</p>
+        <p>El nombre tiene: {{ resultado.cantidad }} caracteres</p>
+        {% if resultado.empatados|length > 1 %}
+        <p>Empate entre {{ resultado.empatados|join(', ') }}. Se muestra el primero ingresado.</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

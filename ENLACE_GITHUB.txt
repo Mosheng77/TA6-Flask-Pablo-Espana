@@ -1,0 +1,4 @@
+PENDIENTE DE PUBLICACIÓN
+Antes de entregar, reemplaza TODO el contenido de este archivo por la URL real
+del repositorio GitHub donde hayas publicado el proyecto.
+No entregues este texto como enlace. Consulta los comandos en README.md.
